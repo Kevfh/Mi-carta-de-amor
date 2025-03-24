@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Georgia', serif; /* Fuente elegante */
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Estilo para la carta */
+        .carta {
+            width: 300px; /* Carta más pequeña */
+            height: 450px; /* Carta más baja */
+            background-color: #f8c9d7; /* Rosa claro */
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más suave y grande */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            cursor: pointer;
+            border-radius: 20px; /* Bordes redondeados */
+            transition: background-color 0.5s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+        }
+
+        /* Estampa de corazón en la esquina superior derecha */
+        .estampa-corazon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Estilo para el mensaje dentro de la carta */
+        .mensaje {
+            font-size: 18px; /* Texto un poco más grande */
+            color: #333;
+            text-align: justify;
+            line-height: 1.6;
+            opacity: 0; /* Inicialmente invisible */
+            transition: opacity 1s ease, transform 1s ease; /* Transición suave */
+            transform: translateY(30px); /* El texto se mueve hacia arriba cuando aparece */
+        }
+
+        /* Efecto de la carta cuando el contenido aparece */
+        .carta.clicked {
+            background-color: #ffffff;
+        }
+
+        /* Animación para que el texto aparezca */
+        .carta.clicked .mensaje {
+            opacity: 1; /* El texto se vuelve visible */
+            transform: translateY(0); /* El texto aparece desde abajo */
+        }
+    </style>
+</head>
+<body>
+    <div class="carta" onclick="mostrarMensaje()">
+        <div class="estampa-corazon"></div>
+        <div class="mensaje">
+            <p><strong>Amada mía</strong></p>
+            <p>Te amo como no tienes idea, corazón, eres increíble y eres todo lo que quiero en mi vida. Quiero que siempre estés a mi lado hasta el fin de nuestras vidas. No terminemos, por favor cielo, deja que esto fluya y no le pongas un fin. Te amo mucho, muack ‹3</p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            document.querySelector('.carta').classList.toggle('clicked');
+        }
+    </script>
+</body>
+</html>
